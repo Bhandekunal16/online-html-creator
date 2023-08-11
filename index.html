@@ -6,21 +6,40 @@
     <title>HTML creator</title>
   </head>
   <body oninput="renderApplication()">
-    <header style="text-align: center;">
+    <header style="text-align: center">
       <h1>HTML creator</h1>
     </header>
 
-        <textarea id="HTML" placeholder="Type here"></textarea>
-        <content id="app"></content>
-    
-    
+    <button onclick="generate()"></button>
+    <textarea id="HTML" placeholder="Type here"></textarea>
+    <content id="app"></content>
+
     <script>
       const appElement = document.getElementById("app");
       const htmlElement = document.getElementById("HTML");
 
       function renderApplication() {
+        const pre= generate()
+        if (pre) {
+          appElement.innerHTML = generate();
+        } else {
+        }
         appElement.innerHTML = htmlElement.value;
       }
+
+      generate = () => {
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+</body>
+</html>`;
+      };
     </script>
     <style>
       #HTML {
