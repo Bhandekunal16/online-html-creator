@@ -10,7 +10,7 @@
       <h1>HTML creator</h1>
     </header>
 
-    <button onclick="generate()"></button>
+    <button onclick="code()">generate</button>
     <textarea id="HTML" placeholder="Type here"></textarea>
     <content id="app"></content>
 
@@ -18,28 +18,21 @@
       const appElement = document.getElementById("app");
       const htmlElement = document.getElementById("HTML");
 
-      function renderApplication() {
-        const pre= generate()
-        if (pre) {
-          appElement.innerHTML = generate();
-        } else {
-        }
+      generate = () => {
+        return `<h1>hello</h1>`
+      };
+
+      function code() {
+        console.log("it working");
+        htmlElement.innerHTML = generate()
         appElement.innerHTML = htmlElement.value;
       }
 
-      generate = () => {
-        return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello</h1>
-</body>
-</html>`;
-      };
+      function renderApplication() {
+        appElement.innerHTML = htmlElement.value;
+      }
+
+      
     </script>
     <style>
       #HTML {
