@@ -21,9 +21,7 @@
       const htmlElement = document.getElementById("HTML");
       const colorElement = document.getElementById("color");
 
-      generate = () => {
-        return `<h1>hiii</h1>`;
-      };
+     
 
       color = () => {
         console.log(colorElement.value);
@@ -44,6 +42,12 @@
           return background;
         }
       };
+
+      generate = () => {
+        return `<h1 style="color:${
+          colorElement.value
+        }; background-color: ${color()}">hiii</h1>`;
+      }; 
 
       button = () => {
         htmlElement.innerHTML = `<button style="color:${
