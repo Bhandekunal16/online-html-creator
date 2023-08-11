@@ -9,24 +9,43 @@
     <header style="text-align: center">
       <h1>HTML creator</h1>
     </header>
-
+    
     <button onclick="code()">generate</button>
     <button onclick="button()">button</button>
+    <input type="text" id="color" />
     <textarea id="HTML" placeholder="Type here"></textarea>
     <content id="app"></content>
 
     <script>
       const appElement = document.getElementById("app");
       const htmlElement = document.getElementById("HTML");
+      const colorElement = document.getElementById("color");
 
       generate = () => {
         return `<h1>hiii</h1>`;
       };
 
+      color = () => {
+        console.log(colorElement.value);
+        let black = "black";
+        let white = "white";
+        if ((colorElement.value == "red")) {
+          let background = black;
+          return background;
+        }
+        if((colorElement.value == "green")){
+            console.log("in green");
+            let background = white;
+          return background;
+        }
+      };
+
       button = () => {
-        htmlElement.innerHTML = `<button>click</button>`
+        htmlElement.innerHTML = `<button style="color:${
+          colorElement.value
+        }; background-color: ${color()}">click</button>`;
         appElement.innerHTML = htmlElement.value;
-      }
+      };
 
       function code() {
         console.log("it working");
