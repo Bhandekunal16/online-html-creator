@@ -9,10 +9,15 @@
     <header style="text-align: center">
       <h1>HTML creator</h1>
     </header>
-    
-    <button onclick="code()">generate</button>
-    <button onclick="button()">button</button>
-    <input type="text" id="color" placeholder="color for text"/>
+
+    <div style="margin-left: 10%">
+      <button onclick="code()">generate</button>
+      <button onclick="button()">button</button>
+      <button onclick="div()">div</button>
+      <button onclick="input()">input</button>
+      <input type="text" id="color" placeholder="color for text" />
+    </div>
+
     <textarea id="HTML" placeholder="Type here"></textarea>
     <content id="app"></content>
 
@@ -21,24 +26,22 @@
       const htmlElement = document.getElementById("HTML");
       const colorElement = document.getElementById("color");
 
-     
-
       color = () => {
         console.log(colorElement.value);
         let black = "black";
         let white = "white";
-        if ((colorElement.value == "red")) {
+        if (colorElement.value == "red") {
           let background = black;
           return background;
         }
-        if((colorElement.value == "green")){
-            console.log("in green");
-            let background = white;
+        if (colorElement.value == "green") {
+          console.log("in green");
+          let background = white;
           return background;
         }
-        if((colorElement.value == "yellow")){
-            console.log("in yellow");
-            let background = white;
+        if (colorElement.value == "yellow") {
+          console.log("in yellow");
+          let background = white;
           return background;
         }
       };
@@ -47,12 +50,22 @@
         return `<h1 style="color:${
           colorElement.value
         }; background-color: ${color()}">hiii</h1>`;
-      }; 
+      };
 
       button = () => {
         htmlElement.innerHTML = `<button style="color:${
           colorElement.value
         }; background-color: ${color()}">click</button>`;
+        appElement.innerHTML = htmlElement.value;
+      };
+
+      div = () => {
+        htmlElement.innerHTML = `<div>${colorElement.value}</div>`;
+        appElement.innerHTML = htmlElement.value;
+      };
+
+      input = () => {
+        htmlElement.innerHTML = `<input type="text"  placeholder="" />`;
         appElement.innerHTML = htmlElement.value;
       };
 
@@ -77,6 +90,9 @@
         resize: vertical;
         overflow: auto;
         vertical-align: top;
+      }
+      #color {
+        color: coral;
       }
     </style>
   </body>
